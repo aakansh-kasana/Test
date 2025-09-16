@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MKOUR — Make Your Own</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%91%9F%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="Responsive shoe try-on preview with smooth navigation and Gemini key modal.">
+</head>
+<body>
+
+  <!-- Announcement bar (inspired by holygrails.in) -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-track" id="announcementTrack">
+      <span>Free standard shipping on all orders above ₹1,499/-</span>
+      <span>MKOUR — Make Your Own. Built by students, for students.</span>
+      <span>First product drop coming early 2026 — Join the Movement.</span>
+      <span>Free standard shipping on all orders above ₹1,499/-</span>
+    </div>
+    <button class="announcement-close" id="closeAnnouncement" aria-label="Close">×</button>
+  </div>
+
+  <!-- Header / Navbar (structure and feel similar to holygrails.in) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#" aria-label="Brand home">
+        <span class="logo-white">MKOUR</span>
+        <span class="logo-black">MKOUR</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <div class="nav-item has-dropdown">
+          <button class="nav-link" aria-haspopup="true" aria-expanded="false">Sneakers</button>
+          <div class="dropdown">
+            <div class="dropdown-col">
+              <h4>By Category</h4>
+              <a href="#">Air Jordans</a>
+              <a href="#">Dunks</a>
+              <a href="#">Yeezy</a>
+              <a href="#">Air Force 1</a>
+              <a href="#">Grails</a>
+              <a href="#">Samba</a>
+            </div>
+            <div class="dropdown-col">
+              <h4>By Price</h4>
+              <a href="#">AJ's Under 9,999</a>
+              <a href="#">AJ's Under 12,999</a>
+              <a href="#">AJ's Under 15,999</a>
+              <a href="#">Dunks Under 9,999</a>
+              <a href="#">Dunks Under 13,999</a>
+              <a href="#">AF1's Under 9,999</a>
+              <a href="#">AF1's Under 13,999</a>
+              <a href="#">Sneaker's Under 7,999</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <button class="nav-link" aria-haspopup="true" aria-expanded="false">Streetwear Apparel</button>
+          <div class="dropdown">
+            <div class="dropdown-col">
+              <h4>By Brands</h4>
+              <a href="#">Against Odds</a>
+              <a href="#">Ascending Desending</a>
+              <a href="#">Bumchiq</a>
+              <a href="#">DRBL</a>
+              <a href="#">Duskin</a>
+              <a href="#">Grey Hound</a>
+            </div>
+            <div class="dropdown-col">
+              <h4>By Categories</h4>
+              <a href="#">Tees</a>
+              <a href="#">Shirts</a>
+              <a href="#">Hoodies & Sweatshirts</a>
+              <a href="#">Shorts</a>
+              <a href="#">Jackets</a>
+            </div>
+            <div class="dropdown-col">
+              <h4>By Price</h4>
+              <a href="#">Clothing Under 999</a>
+              <a href="#">Clothing Under 1,299</a>
+              <a href="#">Clothing Under 1,499</a>
+              <a href="#">Clothing Under 1,999</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <button class="nav-link" aria-haspopup="true" aria-expanded="false">Custom Kicks</button>
+          <div class="dropdown">
+            <div class="dropdown-col">
+              <a href="#">Anime</a>
+              <a href="#">Luxury Brands</a>
+              <a href="#">Marvel & DC</a>
+              <a href="#">Sports</a>
+              <a href="#">Wedding</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+          <button class="nav-link" aria-haspopup="true" aria-expanded="false">Care and Accessories</button>
+          <div class="dropdown">
+            <div class="dropdown-col">
+              <a href="#">Sneakers Cleaning Kits</a>
+              <a href="#">Sneaker Wipes</a>
+              <a href="#">Sneaker Crates</a>
+            </div>
+          </div>
+        </div>
+
+        <a class="nav-link" href="#">Rugs</a>
+        <a class="nav-link highlight" href="#">Holy Sale</a>
+      </nav>
+
+      <div class="icons">
+        <button class="icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M21 21l-4.35-4.35M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Account">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5.5 21c0-3.3 5-4 6.5-4s6.5.7 6.5 4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6h15l-1.68 9H7.68L6 6z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><circle cx="9" cy="21" r="1" /><circle cx="18" cy="21" r="1" /></svg>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <details>
+        <summary>Sneakers</summary>
+        <a href="#">Air Jordans</a>
+        <a href="#">Dunks</a>
+        <a href="#">Yeezy</a>
+        <a href="#">Air Force 1</a>
+        <a href="#">Grails</a>
+        <a href="#">Samba</a>
+      </details>
+      <details>
+        <summary>Streetwear Apparel</summary>
+        <a href="#">Tees</a>
+        <a href="#">Shirts</a>
+        <a href="#">Hoodies & Sweatshirts</a>
+        <a href="#">Shorts</a>
+        <a href="#">Jackets</a>
+      </details>
+      <a href="#">Custom Kicks</a>
+      <a href="#">Care and Accessories</a>
+      <a href="#">Rugs</a>
+      <a class="highlight" href="#">Holy Sale</a>
+    </div>
+  </header>
+
+  <!-- Hero section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>MAKE YOUR OWN. NOT JUST SNEAKERS — A MOVEMENT.</h1>
+      <p>Designed by students, built for students. Authentic, aspirational, and affordable sneakers for India’s youth.</p>
+      <div class="hero-cta">
+        <a href="#shop" class="btn btn-primary">Shop the Drop</a>
+        <a href="#join" class="btn btn-ghost">Join the Movement</a>
+        <button class="btn" id="tryNowTop">Try Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Try On section (UI only) -->
+  <main id="tryon" class="tryon-section">
+    <div class="section-header">
+      <h2>Try On — Preview</h2>
+      <div class="key-status" id="keyStatus" aria-live="polite" hidden>
+        <span class="dot"></span> Gemini Free tier enabled
+      </div>
+    </div>
+
+    <div class="tryon-grid">
+      <div class="card upload-card">
+        <h3>Your Photo</h3>
+        <p class="muted">Upload a full‑body photo to preview shoes.</p>
+        <label class="upload-area" for="photoInput">
+          <input id="photoInput" type="file" accept="image/*" hidden>
+          <div class="upload-visual">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 20h16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Click to upload</span>
+          </div>
+          <img id="photoPreview" alt="Preview" hidden>
+        </label>
+      </div>
+
+      <div class="card shoes-card">
+        <h3>Select Shoes</h3>
+        <div class="shoe-list">
+          <button class="shoe" data-shoe="aj1" aria-pressed="false">
+            <img src="https://images.unsplash.com/photo-1597045566677-8cf9d4d8152b?q=80&w=640&auto=format&fit=crop" alt="Air Jordan 1">
+            <span>Air Jordan 1</span>
+          </button>
+          <button class="shoe" data-shoe="dunk" aria-pressed="false">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=640&auto=format&fit=crop" alt="Nike Dunk">
+            <span>Nike Dunk</span>
+          </button>
+          <button class="shoe" data-shoe="af1" aria-pressed="false">
+            <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=640&auto=format&fit=crop" alt="Air Force 1">
+            <span>Air Force 1</span>
+          </button>
+          <button class="shoe" data-shoe="samba" aria-pressed="false">
+            <img src="https://images.unsplash.com/photo-1618886614638-cd10f0ee37e1?q=80&w=640&auto=format&fit=crop" alt="Adidas Samba">
+            <span>Adidas Samba</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="card action-card">
+        <h3>Preview</h3>
+        <p class="muted">For now this is a UI mock. In Part 2 we’ll generate a video.</p>
+        <div class="actions">
+          <button class="btn btn-primary" id="tryNow">Try On</button>
+          <button class="btn" id="resetForm">Reset</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- MKOUR Sections -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About MKOUR</h2>
+      <p>MKOUR (Make Your Own) isn’t just another sneaker label — it’s a youth-driven movement born out of SRMC’s entrepreneurial spirit. Built by students, for students, we believe India deserves sneakers that are authentic, aspirational, and affordable.</p>
+      <div class="cards-grid">
+        <article class="card sm">
+          <h3>Why We Exist</h3>
+          <p>While global giants price out young Indians and local brands imitate without originality, MKOUR breaks the cycle with design-first, student-led creativity.</p>
+        </article>
+        <article class="card sm">
+          <h3>Design Ethos</h3>
+          <p>Inspired by Mercury — speed and style. Minimal, trend-forward designs for Gen Z and millennials.</p>
+        </article>
+        <article class="card sm">
+          <h3>Fair Pricing</h3>
+          <p>Every pair priced between ₹1,200 and ₹1,800 — premium feel without the premium tag.</p>
+        </article>
+        <article class="card sm">
+          <h3>The Team</h3>
+          <p>16–17 passionate student creators. Early stage, experimenting with outsourced manufacturing and preparing for market launch.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="philosophy" class="section alt">
+    <div class="container">
+      <h2>Brand Philosophy</h2>
+      <p class="lead">More Than Shoes — A Culture of Self-Expression.</p>
+      <div class="cards-grid">
+        <article class="card sm">
+          <h3>Make Your Own</h3>
+          <p>A rallying cry for individuality, customization, and self-expression.</p>
+        </article>
+        <article class="card sm">
+          <h3>Student-Led Creativity</h3>
+          <p>We don’t follow trends — we create them. Built by students, for students.</p>
+        </article>
+        <article class="card sm">
+          <h3>Cultural Hook</h3>
+          <p>Bold attitude rooted in rebellion, originality, and community.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap" class="section">
+    <div class="container">
+      <h2>Launch Roadmap</h2>
+      <ol class="timeline">
+        <li><strong>2024</strong> — Brand Concept & Team Formation</li>
+        <li><strong>Mid 2025</strong> — Website Development & Initial Design R&D</li>
+        <li><strong>Late 2025</strong> — Outsourced Production Trials</li>
+        <li><strong>Early 2026</strong> — First Product Drop (Limited Campus Release)</li>
+        <li><strong>2026 Onward</strong> — Digital Campaigns, Campus Ambassadors, Artist Collabs</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="vision" class="section alt">
+    <div class="container">
+      <h2>Growth Vision</h2>
+      <p class="lead">Scaling Without Selling Out.</p>
+      <div class="cards-grid">
+        <article class="card sm"><h3>Digital First</h3><p>Instagram, Reels, creator collabs.</p></article>
+        <article class="card sm"><h3>Campus Ambassadors</h3><p>Student-led storytelling and community.</p></article>
+        <article class="card sm"><h3>Limited Drops</h3><p>Curated collections, not overcrowded catalogs.</p></article>
+        <article class="card sm"><h3>Artist Collabs</h3><p>Custom collaborations with underground artists.</p></article>
+        <article class="card sm"><h3>Smart Scale</h3><p>Manufacture at scale without compromising style or price.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategy" class="section">
+    <div class="container">
+      <h2>Strategic Trade‑off</h2>
+      <p class="lead">Niche or Mass? We’re Both.</p>
+      <div class="cards-grid">
+        <article class="card sm"><h3>Exclusivity</h3><p>Limited drops keep it aspirational.</p></article>
+        <article class="card sm"><h3>Accessibility</h3><p>Pricing that stays within reach.</p></article>
+        <article class="card sm"><h3>Design-Led</h3><p>Differentiate through original design, not imitation.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="join" class="section alt">
+    <div class="container">
+      <h2>Join the Movement</h2>
+      <p class="lead">Be part of India’s first youth-powered sneaker revolution.</p>
+      <div class="cta-row">
+        <a href="#shop" class="btn btn-primary">Shop the Drop</a>
+        <a href="#ambassadors" class="btn">Become a Campus Ambassador</a>
+        <a href="https://instagram.com/mkour.in" target="_blank" rel="noopener" class="btn btn-ghost">Follow Us on Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="campus" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Walk Your Own Way: The MKOUR Campus Challenge</h2>
+        <div class="scroll-controls">
+          <button class="scroll-btn" data-dir="-1" aria-label="Scroll left">←</button>
+          <button class="scroll-btn" data-dir="1" aria-label="Scroll right">→</button>
+        </div>
+      </div>
+      <p class="muted">Turning college fests into fashion runways. Pop-ups, custom design contests, live styling, giveaways, and more.</p>
+      <div class="h-scroll" id="campusScroller">
+        <article class="tile">
+          <h3>Create. Perform. Represent.</h3>
+          <p>Join open challenges on-stage, off-stage, or online. Tag <strong>@mkour.in</strong> with <strong>#WalkYourOwnWay</strong>.</p>
+        </article>
+        <article class="tile">
+          <h3>Prizes</h3>
+          <p>Custom MKOUR Sneakers, Exclusive Merch Kits, Feature on Instagram & website, and Internship opportunities.</p>
+        </article>
+        <article class="tile">
+          <h3>How to Participate</h3>
+          <ol>
+            <li>Spot MKOUR at your college fest</li>
+            <li>Participate in challenges</li>
+            <li>Tag @mkour.in with #WalkYourOwnWay</li>
+            <li>Win merch or join the Creator Squad</li>
+          </ol>
+        </article>
+        <article class="tile">
+          <h3>Upcoming Appearances</h3>
+          <ul>
+            <li>SRCC Crossroads — Oct 2025</li>
+            <li>Hansraj Renaissance — Nov 2025</li>
+            <li>Miranda House Tempest — Jan 2026</li>
+            <li>Venky Nexus — Feb 2026</li>
+            <li>LSR Tarang — Mar 2026</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="tagline">Make Your Own — Built by students, for students.</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#">About us</a>
+        <a href="#">Blog</a>
+        <a href="#">Customs</a>
+        <a href="#">Sneakers</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+      </nav>
+      <p class="copyright">© 2025 MKOUR.</p>
+    </div>
+  </footer>
+
+  <!-- Modal: Enter Gemini API Key -->
+  <dialog id="keyModal" class="modal">
+    <form method="dialog" class="modal-content" id="keyForm">
+      <h3>Enter your Gemini API key</h3>
+      <p class="muted">Used client-side for the free tier in this preview. Keep it private.</p>
+      <input type="password" id="geminiKeyInput" placeholder="AIza..." autocomplete="off" required>
+      <div class="modal-actions">
+        <button value="cancel" class="btn">Cancel</button>
+        <button id="saveKey" class="btn btn-primary" value="confirm">Save</button>
+      </div>
+      <label class="remember">
+        <input type="checkbox" id="rememberKey"> Remember on this device
+      </label>
+    </form>
+  </dialog>
+
+  <script src="./script.js"></script>
+</body>
+</html>
+
