@@ -153,6 +153,65 @@ body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sa
 .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .card.sm { padding: 14px; border-radius: 12px; background: var(--card); border: 1px solid var(--border); }
 
+/* Accordion */
+.accordion { max-width: 600px; margin: 0 auto; }
+.accordion-item { border-bottom: 1px solid var(--border); }
+.accordion-toggle {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 20px 0;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+.accordion-toggle:hover { color: var(--accent); }
+.accordion-toggle::after {
+  content: '+';
+  font-size: 20px;
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+.accordion-item.expanded .accordion-toggle::after { transform: rotate(45deg); }
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  padding: 0 0 0 0;
+}
+.accordion-item.expanded .accordion-content {
+  max-height: 200px;
+  padding: 0 0 20px 0;
+}
+.accordion-content p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Hover Card */
+.hover-card { position: relative; overflow: hidden; min-height: 280px; cursor: pointer; transition: box-shadow 0.3s ease; }
+.hover-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.card-front, .card-back { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; transition: transform 0.5s ease; }
+.card-back { transform: translateY(100%); }
+.hover-card:hover .card-front { transform: translateY(-100%); }
+.hover-card:hover .card-back { transform: translateY(0); }
+.card-icon { font-size: 3rem; margin-bottom: 10px; color: var(--card-accent); }
+.card-front h3 { margin: 0 0 8px 0; font-size: 1.2rem; color: var(--card-accent); }
+.card-front p { margin: 0; text-align: center; color: var(--text); }
+.mini-icons { display: flex; gap: 10px; margin-bottom: 10px; }
+.mini-icons span { font-size: 1.5rem; }
+.fast-facts { text-align: center; margin-bottom: 15px; }
+.fast-facts p { margin: 2px 0; font-size: 0.9rem; color: var(--muted); }
+.progress-bar { width: 100%; height: 4px; background: #333; border-radius: 2px; overflow: hidden; }
+.progress { height: 100%; background: var(--card-accent); border-radius: 2px; transition: width 0.5s ease; }
+
 /* Timeline */
 .timeline { list-style: none; padding: 0; margin: 12px 0 0 0; border-left: 2px dashed #2a2a2a; }
 .timeline li { padding: 10px 0 10px 14px; position: relative; }
@@ -198,5 +257,11 @@ body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sa
   .event-icon { font-size: 2.5rem; }
   .event-content h3 { font-size: 1rem; }
   .event-description { font-size: 0.8rem; }
+  .hover-card { min-height: 240px; }
+  .card-front, .card-back { padding: 15px; }
+  .card-icon { font-size: 2.5rem; }
+  .card-front h3 { font-size: 1.1rem; }
+  .mini-icons span { font-size: 1.3rem; }
+  .fast-facts p { font-size: 0.85rem; }
 }
 
