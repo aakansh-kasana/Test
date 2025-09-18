@@ -30,10 +30,48 @@
     const button = qs('.nav-link', item);
     const dropdown = qs('.dropdown', item);
     if (!button || !dropdown) return;
+    // Desktop hover
     item.addEventListener('mouseenter', () => button.setAttribute('aria-expanded', 'true'));
     item.addEventListener('mouseleave', () => button.setAttribute('aria-expanded', 'false'));
     button.addEventListener('focus', () => button.setAttribute('aria-expanded', 'true'));
     button.addEventListener('blur', () => button.setAttribute('aria-expanded', 'false'));
+
+    // Mobile tap: open panel with the dropdown's links
+    function openMobilePanel(e) {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      if (!isMobile) return; // keep desktop behavior
+      e.preventDefault();
+      const panel = qs('#mobileNavPanel');
+      if (!panel) return;
+      // Populate panel
+      const links = qsa('a', dropdown).map(a => ({ href: a.getAttribute('href') || '#', text: a.textContent }));
+      if (links.length === 0) { panel.hidden = true; return; }
+      panel.innerHTML = links.map(l => `<a href="${l.href}">${l.text}</a>`).join('');
+      panel.hidden = false;
+      panel.style.display = 'grid';
+      // Ensure panel is visible in viewport
+      panel.scrollIntoView({ block: 'start', behavior: 'smooth' });
+
+      // Toggle behavior: if same button tapped again, hide
+      const currentKey = button.textContent.trim();
+      if (panel.dataset.openKey === currentKey) {
+        panel.hidden = true;
+        panel.dataset.openKey = '';
+        return;
+      }
+      panel.dataset.openKey = currentKey;
+      // Auto-hide when clicking outside or choosing a link
+      const hide = (ev) => {
+        if (!panel.contains(ev.target) && ev.target !== button) {
+          panel.hidden = true;
+          document.removeEventListener('click', hide);
+        }
+      };
+      setTimeout(() => document.addEventListener('click', hide), 0);
+    }
+    // Bind both click and pointerup for better mobile support
+    button.addEventListener('click', openMobilePanel);
+    button.addEventListener('pointerup', openMobilePanel);
   });
 
   // Shoe selection
