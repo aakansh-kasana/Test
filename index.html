@@ -253,14 +253,14 @@
       <p>MKOUR (Make Your Own) isn’t just another sneaker label — it’s a youth-driven movement born out of SRMC’s
         entrepreneurial spirit. Built by students, for students, we believe India deserves sneakers that are authentic,
         aspirational, and affordable.</p>
-      <div class="cards-grid">
-        <article class="card sm hover-card" style="--card-accent: #ff6600;">
-          <div class="card-front">
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-toggle">
             <div class="card-icon">💡</div>
             <h3>Why We Exist</h3>
             <p>Breaking the cycle of imitation with design-first, student-led creativity.</p>
-          </div>
-          <div class="card-back">
+          </button>
+          <div class="accordion-content">
             <div class="mini-icons">
               <span>📈</span>
               <span>🎯</span>
@@ -274,14 +274,14 @@
               <div class="progress" style="width: 85%;"></div>
             </div>
           </div>
-        </article>
-        <article class="card sm hover-card" style="--card-accent: #ff7a1a;">
-          <div class="card-front">
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-toggle">
             <div class="card-icon">🎨</div>
             <h3>Design Ethos</h3>
             <p>Inspired by Mercury — speed and style for Gen Z and millennials.</p>
-          </div>
-          <div class="card-back">
+          </button>
+          <div class="accordion-content">
             <div class="mini-icons">
               <span>⚡</span>
               <span>🔥</span>
@@ -295,14 +295,14 @@
               <div class="progress" style="width: 90%;"></div>
             </div>
           </div>
-        </article>
-        <article class="card sm hover-card" style="--card-accent: #22c55e;">
-          <div class="card-front">
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-toggle">
             <div class="card-icon">💰</div>
             <h3>Fair Pricing</h3>
             <p>Premium feel without the premium tag — ₹1,200 to ₹1,800.</p>
-          </div>
-          <div class="card-back">
+          </button>
+          <div class="accordion-content">
             <div class="mini-icons">
               <span>🏷️</span>
               <span>📊</span>
@@ -316,14 +316,14 @@
               <div class="progress" style="width: 95%;"></div>
             </div>
           </div>
-        </article>
-        <article class="card sm hover-card" style="--card-accent: #3b82f6;">
-          <div class="card-front">
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-toggle">
             <div class="card-icon">👥</div>
             <h3>The Team</h3>
             <p>16–17 passionate student creators driving the movement.</p>
-          </div>
-          <div class="card-back">
+          </button>
+          <div class="accordion-content">
             <div class="mini-icons">
               <span>🎓</span>
               <span>🤝</span>
@@ -337,7 +337,7 @@
               <div class="progress" style="width: 70%;"></div>
             </div>
           </div>
-        </article>
+        </div>
       </div>
     </div>
   </section>
@@ -426,31 +426,46 @@
     </div>
   </section>
 
-  <section id="vision" class="section alt">
-    <div class="container">
-      <h2>Growth Vision</h2>
-      <p class="lead">Scaling Without Selling Out.</p>
-      <div class="cards-grid">
-        <article class="card sm">
-          <h3>Digital First</h3>
-          <p>Instagram, Reels, creator collabs.</p>
-        </article>
-        <article class="card sm">
-          <h3>Campus Ambassadors</h3>
-          <p>Student-led storytelling and community.</p>
-        </article>
-        <article class="card sm">
-          <h3>Limited Drops</h3>
-          <p>Curated collections, not overcrowded catalogs.</p>
-        </article>
-        <article class="card sm">
-          <h3>Artist Collabs</h3>
-          <p>Custom collaborations with underground artists.</p>
-        </article>
-        <article class="card sm">
-          <h3>Smart Scale</h3>
-          <p>Manufacture at scale without compromising style or price.</p>
-        </article>
+  <section id="vision" class="story-section">
+    <div class="story-container">
+      <h2 class="story-title">Growth Vision</h2>
+      <p class="story-lead">Scaling Without Selling Out.</p>
+    </div>
+
+    <div class="story-blocks">
+      <div class="story-block" data-animation="fade-in">
+        <div class="story-content">
+          <h3 class="story-heading">Digital First</h3>
+          <p class="story-description">Instagram, Reels, creator collabs. Building a community through authentic digital storytelling and creator partnerships that resonate with Gen Z.</p>
+        </div>
+      </div>
+
+      <div class="story-block" data-animation="slide-up">
+        <div class="story-content">
+          <h3 class="story-heading">Campus Ambassadors</h3>
+          <p class="story-description">Student-led storytelling and community. Empowering campus influencers to spread the MKOUR message organically across colleges nationwide.</p>
+        </div>
+      </div>
+
+      <div class="story-block" data-animation="fade-in">
+        <div class="story-content">
+          <h3 class="story-heading">Limited Drops</h3>
+          <p class="story-description">Curated collections, not overcrowded catalogs. Maintaining exclusivity and desirability through carefully planned, limited-edition releases.</p>
+        </div>
+      </div>
+
+      <div class="story-block" data-animation="fade-in">
+        <div class="story-content">
+          <h3 class="story-heading">Artist Collabs</h3>
+          <p class="story-description">Custom collaborations with underground artists. Partnering with emerging creatives to produce unique, culturally relevant designs that stand out.</p>
+        </div>
+      </div>
+
+      <div class="story-block" data-animation="slide-up">
+        <div class="story-content">
+          <h3 class="story-heading">Smart Scale</h3>
+          <p class="story-description">Manufacture at scale without compromising style or price. Leveraging efficient production while maintaining premium quality and student-friendly pricing.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -493,26 +508,28 @@
     <div class="container">
       <div class="section-head">
         <h2>Walk Your Own Way: The MKOUR Campus Challenge</h2>
-        <div class="scroll-controls">
-          <button class="scroll-btn" data-dir="-1" aria-label="Scroll left">←</button>
-          <button class="scroll-btn" data-dir="1" aria-label="Scroll right">→</button>
+        <div class="carousel-controls">
+          <button class="carousel-btn prev" aria-label="Previous card">←</button>
+          <button class="carousel-btn next" aria-label="Next card">→</button>
         </div>
       </div>
       <p class="muted">Turning college fests into fashion runways. Pop-ups, custom design contests, live styling,
         giveaways, and more.</p>
-      <div class="h-scroll" id="campusScroller">
-        <article class="tile">
+      <div class="stacked-carousel" id="campusCarousel">
+        <button class="carousel-btn prev carousel-arrow" aria-label="Previous card">←</button>
+        <button class="carousel-btn next carousel-arrow" aria-label="Next card">→</button>
+        <div class="tile active" style="position: absolute; top: 50%; left: 50%; width: 280px; height: 280px; background: linear-gradient(135deg, #ff6600 0%, #ff7a1a 100%); border-radius: 20px; box-shadow: 0 30px 40px rgba(255, 102, 0, 0.6), inset 0 0 60px rgba(255, 255, 255, 0.25); color: white; padding: 24px; box-sizing: border-box; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s ease; cursor: default; opacity: 1; pointer-events: auto; text-align: center; display: flex; flex-direction: column; justify-content: center; transform: translate3d(-50%, -50%, 0) rotateY(0deg) rotateX(0deg) scale(1); z-index: 10;">
           <h3>Create. Perform. Represent.</h3>
           <p>Join open challenges on-stage, off-stage, or online. Tag <strong>@mkour.in</strong> with
             <strong>#WalkYourOwnWay</strong>.
           </p>
-        </article>
-        <article class="tile">
+        </div>
+        <div class="tile" style="position: absolute; top: 50%; left: 50%; width: 280px; height: 280px; background: linear-gradient(135deg, #ff6600 0%, #ff7a1a 100%); border-radius: 20px; box-shadow: 0 20px 30px rgba(255, 102, 0, 0.4), inset 0 0 40px rgba(255, 255, 255, 0.15); color: white; padding: 24px; box-sizing: border-box; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s ease; cursor: grab; opacity: 0.6; pointer-events: none; text-align: center; display: flex; flex-direction: column; justify-content: center; transform: translate3d(calc(-50% + 40px), calc(-50% + 20px), -120px) rotateY(-15deg) rotateX(5deg) scale(0.85); z-index: 9;">
           <h3>Prizes</h3>
           <p>Custom MKOUR Sneakers, Exclusive Merch Kits, Feature on Instagram & website, and Internship opportunities.
           </p>
-        </article>
-        <article class="tile">
+        </div>
+        <div class="tile" style="position: absolute; top: 50%; left: 50%; width: 280px; height: 280px; background: linear-gradient(135deg, #ff6600 0%, #ff7a1a 100%); border-radius: 20px; box-shadow: 0 20px 30px rgba(255, 102, 0, 0.4), inset 0 0 40px rgba(255, 255, 255, 0.15); color: white; padding: 24px; box-sizing: border-box; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s ease; cursor: grab; opacity: 0.5; pointer-events: none; text-align: center; display: flex; flex-direction: column; justify-content: center; transform: translate3d(calc(-50% + 80px), calc(-50% + 40px), -240px) rotateY(-25deg) rotateX(10deg) scale(0.7); z-index: 8;">
           <h3>How to Participate</h3>
           <ol>
             <li>Spot MKOUR at your college fest</li>
@@ -520,8 +537,8 @@
             <li>Tag @mkour.in with #WalkYourOwnWay</li>
             <li>Win merch or join the Creator Squad</li>
           </ol>
-        </article>
-        <article class="tile">
+        </div>
+        <div class="tile" style="position: absolute; top: 50%; left: 50%; width: 280px; height: 280px; background: linear-gradient(135deg, #ff6600 0%, #ff7a1a 100%); border-radius: 20px; box-shadow: 0 20px 30px rgba(255, 102, 0, 0.4), inset 0 0 40px rgba(255, 255, 255, 0.15); color: white; padding: 24px; box-sizing: border-box; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s ease; cursor: grab; opacity: 0.3; pointer-events: none; text-align: center; display: flex; flex-direction: column; justify-content: center; transform: translate3d(calc(-50% + 120px), calc(-50% + 60px), -360px) rotateY(-35deg) rotateX(15deg) scale(0.55); z-index: 7;">
           <h3>Upcoming Appearances</h3>
           <ul>
             <li>SRCC Crossroads — Oct 2025</li>
@@ -530,7 +547,7 @@
             <li>Venky Nexus — Feb 2026</li>
             <li>LSR Tarang — Mar 2026</li>
           </ul>
-        </article>
+        </div>
       </div>
     </div>
   </section>
@@ -567,6 +584,7 @@
     </form>
   </dialog>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="./script.js"></script>
 </body>
 
