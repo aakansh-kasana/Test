@@ -177,25 +177,48 @@
     timelineEvents.forEach((event) => observer.observe(event));
   }
 
-  // Accordion functionality for Brand Philosophy
+  // Accordion functionality for Brand Philosophy and global accordions
   const accordionItems = qsa('.accordion-item');
-  accordionItems.forEach(item => {
-    const toggle = item.querySelector('.accordion-toggle');
-    toggle.addEventListener('click', () => {
-      const isExpanded = item.classList.contains('expanded');
-      // Collapse all items
-      accordionItems.forEach(i => i.classList.remove('expanded'));
-      // Expand clicked item if it was not already expanded
-      if (!isExpanded) {
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  if (isTouchDevice) {
+    // Touch devices: scroll-based expansion
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Collapse all
+          accordionItems.forEach(i => i.classList.remove('expanded'));
+          // Expand this one
+          entry.target.classList.add('expanded');
+        }
+      });
+    }, observerOptions);
+    accordionItems.forEach((item) => observer.observe(item));
+  } else {
+    // Desktop: click and hover expansion
+    accordionItems.forEach(item => {
+      const toggle = item.querySelector('.accordion-toggle');
+      toggle.addEventListener('click', () => {
+        const isExpanded = item.classList.contains('expanded');
+        // Collapse all items
+        accordionItems.forEach(i => i.classList.remove('expanded'));
+        // Expand clicked item if it was not already expanded
+        if (!isExpanded) {
+          item.classList.add('expanded');
+        }
+      });
+      // Also expand on hover
+      toggle.addEventListener('mouseenter', () => {
+        accordionItems.forEach(i => i.classList.remove('expanded'));
         item.classList.add('expanded');
-      }
+      });
     });
-    // Also expand on hover (optional, as per user request)
-    toggle.addEventListener('mouseenter', () => {
-      accordionItems.forEach(i => i.classList.remove('expanded'));
-      item.classList.add('expanded');
-    });
-  });
+  }
 })();
 
 
