@@ -207,7 +207,7 @@
 :root { --bg:#0a0a0a; --card:#111111; --muted:#a1a1aa; --text:#ffffff; --accent:#ff6600; --accent-2:#ff7a1a; --border:#222222; }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
+body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
 /* Announcement bar */
 .announcement-bar { position: sticky; top: 0; z-index: 1000; background: #111; color: #fff; overflow: hidden; border-bottom: 1px solid var(--border); }
@@ -246,11 +246,12 @@ body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sa
 .mobile-menu[hidden] { display: none !important; }
 
 /* Hero */
-.hero { background: url('https://coddi.co/cdn/shop/files/coddi_halloween2022_2_1944x.jpg?v=1666837623') center/cover no-repeat; border-bottom: 1px solid var(--border); }
-.hero-content { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+.hero { position: relative; background: url('https://coddi.co/cdn/shop/files/coddi_halloween2022_2_1944x.jpg?v=1666837623') center/cover no-repeat; border-bottom: 1px solid var(--border); min-height: 60vh; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.6)); pointer-events: none; }
+.hero-content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
 .hero-content h1 { font-size: 48px; line-height: 1.05; margin: 0 0 10px 0; text-transform: uppercase; }
 .hero-content p { margin: 0 0 24px 0; color: var(--muted); }
-.hero-cta { display: flex; gap: 12px; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* Try On */
 .tryon-section { max-width: 1200px; margin: 0 auto; padding: 32px 24px 64px; }
@@ -359,6 +360,7 @@ body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sa
 .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
 /* ---------- End merged base theme and components ---------- */
 
+/* Storytelling Blocks (Apple-like Growth Vision) */
 .story-section { border-top: 1px solid var(--border); }
 .story-container { max-width: 1200px; margin: 0 auto; padding: 56px 24px 16px; }
 .story-title { font-size: 36px; margin: 0 0 6px 0; }
@@ -379,4 +381,62 @@ body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sa
 @media (max-width: 900px) {
   .story-heading { font-size: 36px; }
   .story-description { font-size: 16px; }
+}
+
+/* Tablet tweaks */
+@media (max-width: 1024px) {
+  .hero-content h1 { font-size: 40px; }
+  .story-content { padding: 0 8px; }
+}
+
+/* Phone / narrow devices */
+@media (max-width: 768px) {
+  .header-inner { padding: 12px 16px; }
+  .announcement-track { gap: 24px; padding-right: 40px; }
+  /* Reflow header: logo on top, icons under logo, nav as horizontal scroller */
+  .site-header { position: sticky; top: 0; }
+  .header-inner { display: grid; grid-template-columns: 1fr; gap: 8px; align-items: start; }
+  .logo { order: 1; }
+  .icons { order: 2; justify-content: flex-start; gap: 14px; }
+  .icons .icon-btn svg { width: 20px; height: 20px; }
+  .main-nav { order: 3; display: flex !important; overflow-x: auto; overflow-y: hidden; white-space: nowrap; gap: 16px; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .main-nav::-webkit-scrollbar { display: none; }
+  .nav-item, .nav-link { padding: 6px 8px; }
+  /* Disable desktop dropdowns on mobile */
+  .has-dropdown .dropdown { display: none !important; }
+
+  .hero { min-height: 70vh; }
+  .hero-content { padding: 40px 16px; }
+  .hero-content h1 { font-size: 28px; line-height: 1.2; }
+  .hero-content p { font-size: 14px; }
+  .btn { padding: 10px 14px; }
+  /* Compact the Try On header area */
+  .section-header { gap: 10px; margin-bottom: 10px; }
+  .section-header h2 { font-size: 18px; margin: 0; }
+  .key-status { gap: 6px; font-size: 12px; }
+  .key-status .dot { width: 6px; height: 6px; }
+  .story-container { padding: 40px 16px 8px; }
+  .story-block { min-height: 50vh; padding: 28px 16px; }
+  .story-heading { font-size: 28px; }
+  .story-description { font-size: 15px; max-width: 90vw; }
+  .carousel-btn { width: 32px; height: 32px; font-size: 1.2rem; }
+  .carousel-arrow.prev { left: 6px; }
+  .carousel-arrow.next { right: 6px; }
+  .stacked-carousel { max-width: 92vw; height: 260px; }
+  .stacked-carousel .tile { width: 75vw; max-width: 320px; height: 220px; padding: 16px; }
+  .tile h3 { font-size: 1.1rem; }
+  .tile p, .tile ol, .tile ul { font-size: 0.9rem; }
+  .tryon-section { padding: 24px 16px 48px; }
+  .site-footer .footer-inner { padding: 24px 16px 40px; }
+  /* Strategic Trade-off: stack vertically on phones */
+  #strategy .cards-grid { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* Extra small phones */
+@media (max-width: 420px) {
+  .hero { min-height: 80vh; }
+  .hero-content h1 { font-size: 24px; }
+  .btn { padding: 9px 12px; }
+  .stacked-carousel { height: 220px; }
+  .stacked-carousel .tile { height: 200px; }
 }
