@@ -430,6 +430,11 @@ body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sa
   .site-footer .footer-inner { padding: 24px 16px 40px; }
   /* Strategic Trade-off: stack vertically on phones */
   #strategy .cards-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  /* Mobile nav panel (tap to open suboptions) */
+  .mobile-nav-panel { position: sticky; top: 56px; background: #0e0e0e; border-bottom: 1px solid var(--border); padding: 8px 16px; display: grid; gap: 6px; z-index: 998; }
+  .mobile-nav-panel a { color: #fff; text-decoration: none; padding: 10px 8px; border-radius: 8px; border: 1px solid var(--border); display: block; }
+  .mobile-nav-panel[hidden] { display: none; }
 }
 
 /* Extra small phones */
