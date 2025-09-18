@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,9 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%91%9F%3C/text%3E%3C/svg%3E">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%91%9F%3C/text%3E%3C/svg%3E">
   <meta name="description" content="Responsive shoe try-on preview with smooth navigation and Gemini key modal.">
 </head>
+
 <body>
 
   <!-- Announcement bar (inspired by holygrails.in) -->
@@ -113,19 +116,29 @@
           </div>
         </div>
 
-        <a class="nav-link" href="#">Rugs</a>
         <a class="nav-link highlight" href="#">Holy Sale</a>
       </nav>
 
       <div class="icons">
         <button class="icon-btn" aria-label="Search">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M21 21l-4.35-4.35M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path d="M21 21l-4.35-4.35M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" stroke="currentColor" stroke-width="2"
+              fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
         </button>
         <button class="icon-btn" aria-label="Account">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5.5 21c0-3.3 5-4 6.5-4s6.5.7 6.5 4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none" />
+            <path d="M5.5 21c0-3.3 5-4 6.5-4s6.5.7 6.5 4" stroke="currentColor" stroke-width="2" fill="none" />
+          </svg>
         </button>
         <button class="icon-btn" aria-label="Cart">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6h15l-1.68 9H7.68L6 6z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><circle cx="9" cy="21" r="1" /><circle cx="18" cy="21" r="1" /></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path d="M6 6h15l-1.68 9H7.68L6 6z" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linejoin="round" />
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="18" cy="21" r="1" />
+          </svg>
         </button>
         <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
@@ -152,7 +165,6 @@
       </details>
       <a href="#">Custom Kicks</a>
       <a href="#">Care and Accessories</a>
-      <a href="#">Rugs</a>
       <a class="highlight" href="#">Holy Sale</a>
     </div>
   </header>
@@ -161,7 +173,8 @@
   <section class="hero">
     <div class="hero-content">
       <h1>MAKE YOUR OWN. NOT JUST SNEAKERS — A MOVEMENT.</h1>
-      <p>Designed by students, built for students. Authentic, aspirational, and affordable sneakers for India’s youth.</p>
+      <p>Designed by students, built for students. Authentic, aspirational, and affordable sneakers for India’s youth.
+      </p>
       <div class="hero-cta">
         <a href="#shop" class="btn btn-primary">Shop the Drop</a>
         <a href="#join" class="btn btn-ghost">Join the Movement</a>
@@ -186,7 +199,10 @@
         <label class="upload-area" for="photoInput">
           <input id="photoInput" type="file" accept="image/*" hidden>
           <div class="upload-visual">
-            <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 20h16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" width="28" height="28">
+              <path d="M12 16V4m0 0l-4 4m4-4l4 4M4 20h16" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
             <span>Click to upload</span>
           </div>
           <img id="photoPreview" alt="Preview" hidden>
@@ -197,19 +213,23 @@
         <h3>Select Shoes</h3>
         <div class="shoe-list">
           <button class="shoe" data-shoe="aj1" aria-pressed="false">
-            <img src="https://images.unsplash.com/photo-1597045566677-8cf9d4d8152b?q=80&w=640&auto=format&fit=crop" alt="Air Jordan 1">
+            <img src="https://images.unsplash.com/photo-1597045566677-8cf9d4d8152b?q=80&w=640&auto=format&fit=crop"
+              alt="Air Jordan 1">
             <span>Air Jordan 1</span>
           </button>
           <button class="shoe" data-shoe="dunk" aria-pressed="false">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=640&auto=format&fit=crop" alt="Nike Dunk">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=640&auto=format&fit=crop"
+              alt="Nike Dunk">
             <span>Nike Dunk</span>
           </button>
           <button class="shoe" data-shoe="af1" aria-pressed="false">
-            <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=640&auto=format&fit=crop" alt="Air Force 1">
+            <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=640&auto=format&fit=crop"
+              alt="Air Force 1">
             <span>Air Force 1</span>
           </button>
           <button class="shoe" data-shoe="samba" aria-pressed="false">
-            <img src="https://images.unsplash.com/photo-1618886614638-cd10f0ee37e1?q=80&w=640&auto=format&fit=crop" alt="Adidas Samba">
+            <img src="https://images.unsplash.com/photo-1618886614638-cd10f0ee37e1?q=80&w=640&auto=format&fit=crop"
+              alt="Adidas Samba">
             <span>Adidas Samba</span>
           </button>
         </div>
@@ -230,11 +250,14 @@
   <section id="about" class="section">
     <div class="container">
       <h2>About MKOUR</h2>
-      <p>MKOUR (Make Your Own) isn’t just another sneaker label — it’s a youth-driven movement born out of SRMC’s entrepreneurial spirit. Built by students, for students, we believe India deserves sneakers that are authentic, aspirational, and affordable.</p>
+      <p>MKOUR (Make Your Own) isn’t just another sneaker label — it’s a youth-driven movement born out of SRMC’s
+        entrepreneurial spirit. Built by students, for students, we believe India deserves sneakers that are authentic,
+        aspirational, and affordable.</p>
       <div class="cards-grid">
         <article class="card sm">
           <h3>Why We Exist</h3>
-          <p>While global giants price out young Indians and local brands imitate without originality, MKOUR breaks the cycle with design-first, student-led creativity.</p>
+          <p>While global giants price out young Indians and local brands imitate without originality, MKOUR breaks the
+            cycle with design-first, student-led creativity.</p>
         </article>
         <article class="card sm">
           <h3>Design Ethos</h3>
@@ -246,7 +269,8 @@
         </article>
         <article class="card sm">
           <h3>The Team</h3>
-          <p>16–17 passionate student creators. Early stage, experimenting with outsourced manufacturing and preparing for market launch.</p>
+          <p>16–17 passionate student creators. Early stage, experimenting with outsourced manufacturing and preparing
+            for market launch.</p>
         </article>
       </div>
     </div>
@@ -276,13 +300,57 @@
   <section id="roadmap" class="section">
     <div class="container">
       <h2>Launch Roadmap</h2>
-      <ol class="timeline">
-        <li><strong>2024</strong> — Brand Concept & Team Formation</li>
-        <li><strong>Mid 2025</strong> — Website Development & Initial Design R&D</li>
-        <li><strong>Late 2025</strong> — Outsourced Production Trials</li>
-        <li><strong>Early 2026</strong> — First Product Drop (Limited Campus Release)</li>
-        <li><strong>2026 Onward</strong> — Digital Campaigns, Campus Ambassadors, Artist Collabs</li>
-      </ol>
+      <div class="horizontal-timeline">
+        <div class="timeline-wrapper">
+          <div class="events">
+            <div class="event" data-year="2024">
+              <div class="event-icon">🧠</div>
+              <div class="event-content">
+                <h3>2024</h3>
+                <p>Brand Concept & Team Formation</p>
+                <span class="event-description">Initial development of brand identity, values, and assembling the
+                  founding team.</span>
+              </div>
+            </div>
+            <div class="event" data-year="Mid 2025">
+              <div class="event-icon">💻</div>
+              <div class="event-content">
+                <h3>Mid 2025</h3>
+                <p>Website Development & Initial Design R&D</p>
+                <span class="event-description">Start of website development and research into initial product and
+                  design concepts.</span>
+              </div>
+            </div>
+            <div class="event" data-year="Late 2025">
+              <div class="event-icon">🔬</div>
+              <div class="event-content">
+                <h3>Late 2025</h3>
+                <p>Outsourced Production Trials</p>
+                <span class="event-description">Testing and refining product manufacturing with external
+                  partners.</span>
+              </div>
+            </div>
+            <div class="event" data-year="Early 2026">
+              <div class="event-icon">🎉</div>
+              <div class="event-content">
+                <h3>Early 2026</h3>
+                <p>First Product Drop (Limited Campus Release)</p>
+                <span class="event-description">Launch of our first limited product drop at select campuses to build
+                  early buzz.</span>
+              </div>
+            </div>
+            <div class="event" data-year="2026 Onward">
+              <div class="event-icon">📢</div>
+              <div class="event-content">
+                <h3>2026 Onward</h3>
+                <p>Digital Campaigns, Campus Ambassadors, Artist Collabs</p>
+                <span class="event-description">Growth through digital marketing, ambassador programs, and
+                  collaborations with creatives.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -291,11 +359,26 @@
       <h2>Growth Vision</h2>
       <p class="lead">Scaling Without Selling Out.</p>
       <div class="cards-grid">
-        <article class="card sm"><h3>Digital First</h3><p>Instagram, Reels, creator collabs.</p></article>
-        <article class="card sm"><h3>Campus Ambassadors</h3><p>Student-led storytelling and community.</p></article>
-        <article class="card sm"><h3>Limited Drops</h3><p>Curated collections, not overcrowded catalogs.</p></article>
-        <article class="card sm"><h3>Artist Collabs</h3><p>Custom collaborations with underground artists.</p></article>
-        <article class="card sm"><h3>Smart Scale</h3><p>Manufacture at scale without compromising style or price.</p></article>
+        <article class="card sm">
+          <h3>Digital First</h3>
+          <p>Instagram, Reels, creator collabs.</p>
+        </article>
+        <article class="card sm">
+          <h3>Campus Ambassadors</h3>
+          <p>Student-led storytelling and community.</p>
+        </article>
+        <article class="card sm">
+          <h3>Limited Drops</h3>
+          <p>Curated collections, not overcrowded catalogs.</p>
+        </article>
+        <article class="card sm">
+          <h3>Artist Collabs</h3>
+          <p>Custom collaborations with underground artists.</p>
+        </article>
+        <article class="card sm">
+          <h3>Smart Scale</h3>
+          <p>Manufacture at scale without compromising style or price.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -305,9 +388,18 @@
       <h2>Strategic Trade‑off</h2>
       <p class="lead">Niche or Mass? We’re Both.</p>
       <div class="cards-grid">
-        <article class="card sm"><h3>Exclusivity</h3><p>Limited drops keep it aspirational.</p></article>
-        <article class="card sm"><h3>Accessibility</h3><p>Pricing that stays within reach.</p></article>
-        <article class="card sm"><h3>Design-Led</h3><p>Differentiate through original design, not imitation.</p></article>
+        <article class="card sm">
+          <h3>Exclusivity</h3>
+          <p>Limited drops keep it aspirational.</p>
+        </article>
+        <article class="card sm">
+          <h3>Accessibility</h3>
+          <p>Pricing that stays within reach.</p>
+        </article>
+        <article class="card sm">
+          <h3>Design-Led</h3>
+          <p>Differentiate through original design, not imitation.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -319,7 +411,8 @@
       <div class="cta-row">
         <a href="#shop" class="btn btn-primary">Shop the Drop</a>
         <a href="#ambassadors" class="btn">Become a Campus Ambassador</a>
-        <a href="https://instagram.com/mkour.in" target="_blank" rel="noopener" class="btn btn-ghost">Follow Us on Instagram</a>
+        <a href="https://instagram.com/mkour.in" target="_blank" rel="noopener" class="btn btn-ghost">Follow Us on
+          Instagram</a>
       </div>
     </div>
   </section>
@@ -333,15 +426,19 @@
           <button class="scroll-btn" data-dir="1" aria-label="Scroll right">→</button>
         </div>
       </div>
-      <p class="muted">Turning college fests into fashion runways. Pop-ups, custom design contests, live styling, giveaways, and more.</p>
+      <p class="muted">Turning college fests into fashion runways. Pop-ups, custom design contests, live styling,
+        giveaways, and more.</p>
       <div class="h-scroll" id="campusScroller">
         <article class="tile">
           <h3>Create. Perform. Represent.</h3>
-          <p>Join open challenges on-stage, off-stage, or online. Tag <strong>@mkour.in</strong> with <strong>#WalkYourOwnWay</strong>.</p>
+          <p>Join open challenges on-stage, off-stage, or online. Tag <strong>@mkour.in</strong> with
+            <strong>#WalkYourOwnWay</strong>.
+          </p>
         </article>
         <article class="tile">
           <h3>Prizes</h3>
-          <p>Custom MKOUR Sneakers, Exclusive Merch Kits, Feature on Instagram & website, and Internship opportunities.</p>
+          <p>Custom MKOUR Sneakers, Exclusive Merch Kits, Feature on Instagram & website, and Internship opportunities.
+          </p>
         </article>
         <article class="tile">
           <h3>How to Participate</h3>
@@ -400,5 +497,5 @@
 
   <script src="./script.js"></script>
 </body>
-</html>
 
+</html>
