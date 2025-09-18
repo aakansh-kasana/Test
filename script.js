@@ -146,16 +146,100 @@
     });
   }
 
-  // Horizontal scroller controls (Campus Challenge)
-  const scroller = qs('#campusScroller');
-  qsa('.scroll-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      if (!scroller) return;
-      const dir = Number(btn.dataset.dir || '1');
-      const amount = scroller.clientWidth * 0.8 * dir;
-      scroller.scrollBy({ left: amount, behavior: 'smooth' });
+  // Stacked Card Carousel for Campus Challenge
+  (function() {
+    const carousel = qs('#campusCarousel');
+    if (!carousel) return;
+
+    const tiles = qsa('.tile', carousel);
+    const prevBtns = qsa('.carousel-btn.prev');
+    const nextBtns = qsa('.carousel-btn.next');
+    let currentIndex = 0;
+    let autoplayInterval;
+    let isPaused = false;
+
+    function transformForOffset(offset) {
+      // offset 0 is active card
+      if (offset === 0) {
+        return 'translate3d(-50%, -50%, 0) rotateY(0deg) rotateX(0deg) scale(1)';
+      }
+      if (offset === 1) {
+        return 'translate3d(calc(-50% + 40px), calc(-50% + 20px), -120px) rotateY(-15deg) rotateX(5deg) scale(0.85)';
+      }
+      if (offset === 2) {
+        return 'translate3d(calc(-50% + 80px), calc(-50% + 40px), -240px) rotateY(-25deg) rotateX(10deg) scale(0.7)';
+      }
+      // 3 or more: push far back and hide visually
+      return 'translate3d(calc(-50% + 120px), calc(-50% + 60px), -480px) rotateY(-35deg) rotateX(15deg) scale(0.5)';
+    }
+
+    function updateCarousel() {
+      tiles.forEach((tile, index) => {
+        const rel = (index - currentIndex + tiles.length) % tiles.length; // 0..N-1
+        tile.style.transform = transformForOffset(rel);
+        // Only keep two background tiles slightly visible; hide the rest
+        if (rel === 0) {
+          tile.style.opacity = '1';
+          tile.style.visibility = 'visible';
+          tile.style.pointerEvents = 'auto';
+        } else if (rel === 1) {
+          tile.style.opacity = '0.01  ';
+          tile.style.visibility = 'visible';
+          tile.style.pointerEvents = 'none';
+        } else if (rel === 2) {
+          tile.style.opacity = '0.2';
+          tile.style.visibility = 'visible';
+          tile.style.pointerEvents = 'none';
+        } else {
+          tile.style.opacity = '0';
+          tile.style.visibility = 'hidden';
+          tile.style.pointerEvents = 'none';
+        }
+        tile.classList.toggle('active', rel === 0);
+      });
+    }
+
+    function nextCard() { currentIndex = (currentIndex + 1) % tiles.length; updateCarousel(); }
+    function prevCard() { currentIndex = (currentIndex - 1 + tiles.length) % tiles.length; updateCarousel(); }
+
+    function startAutoplay() {
+      autoplayInterval = setInterval(() => { if (!isPaused) nextCard(); }, 7000);
+    }
+    function stopAutoplay() { clearInterval(autoplayInterval); }
+    function pauseAutoplay() { isPaused = true; }
+    function resumeAutoplay() { isPaused = false; }
+
+    // Event listeners for all arrow buttons
+    prevBtns.forEach(b => b.addEventListener('click', prevCard));
+    nextBtns.forEach(b => b.addEventListener('click', nextCard));
+
+    // Pause on hover/tap
+    carousel.addEventListener('mouseenter', pauseAutoplay);
+    carousel.addEventListener('mouseleave', resumeAutoplay);
+    carousel.addEventListener('touchstart', pauseAutoplay);
+    carousel.addEventListener('touchend', resumeAutoplay);
+
+    // Swipe gestures for mobile
+    let startX = 0;
+    let endX = 0;
+    carousel.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; pauseAutoplay(); });
+    carousel.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      const diffX = startX - endX;
+      if (Math.abs(diffX) > 50) { if (diffX > 0) nextCard(); else prevCard(); }
+      resumeAutoplay();
     });
-  });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevCard();
+      else if (e.key === 'ArrowRight') nextCard();
+    });
+
+    // Initialize positions (override inline transforms)
+    updateCarousel();
+    startAutoplay();
+  })();
 
   // Timeline highlighting
   const timelineEvents = qsa('.event');
@@ -221,4 +305,28 @@
   }
 })();
 
+// Story section scroll animations
+(function() {
+  const storyBlocks = document.querySelectorAll('.story-block');
+
+  if (storyBlocks.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -100px 0px', // Trigger slightly before fully in view
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          // Optional: unobserve after animation to prevent re-triggering
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    storyBlocks.forEach((block) => observer.observe(block));
+  }
+})();
 
