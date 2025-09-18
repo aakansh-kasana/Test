@@ -158,6 +158,23 @@ body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sa
 .timeline li { padding: 10px 0 10px 14px; position: relative; }
 .timeline li::before { content: ""; position: absolute; left: -6px; top: 18px; width: 8px; height: 8px; background: var(--accent); border-radius: 999px; }
 
+/* Horizontal Timeline */
+.horizontal-timeline { overflow: hidden; }
+.timeline-wrapper { overflow-x: auto; scroll-behavior: smooth; padding: 20px 0; }
+.timeline-wrapper::-webkit-scrollbar { height: 8px; }
+.timeline-wrapper::-webkit-scrollbar-track { background: var(--card); }
+.timeline-wrapper::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+.timeline-wrapper::-webkit-scrollbar-thumb:hover { background: var(--accent-2); }
+.timeline-line { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--accent); z-index: 1; }
+.events { display: flex; gap: 60px; min-width: max-content; position: relative; padding: 40px 20px; }
+.event { position: relative; min-width: 280px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.event::before { content: ""; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 16px; height: 16px; background: var(--accent); border-radius: 50%; z-index: 2; }
+.event.active { transform: scale(1.05); box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3); }
+.event-icon { font-size: 3rem; margin-bottom: 10px; }
+.event-content h3 { margin: 0 0 8px 0; font-size: 1.2rem; color: var(--accent); }
+.event-content p { margin: 0 0 10px 0; font-weight: 600; }
+.event-description { color: var(--muted); font-size: 0.9rem; line-height: 1.4; }
+
 /* CTA row */
 .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
 
@@ -171,8 +188,15 @@ body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sa
 
 @media (max-width: 1100px) {
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .events { gap: 40px; }
+  .event { min-width: 240px; }
 }
 @media (max-width: 640px) {
   .cards-grid { grid-template-columns: 1fr; }
+  .events { gap: 20px; padding: 40px 10px; }
+  .event { min-width: 200px; padding: 15px; }
+  .event-icon { font-size: 2.5rem; }
+  .event-content h3 { font-size: 1rem; }
+  .event-description { font-size: 0.8rem; }
 }
 
