@@ -156,6 +156,26 @@
       scroller.scrollBy({ left: amount, behavior: 'smooth' });
     });
   });
+
+  // Timeline highlighting
+  const timelineEvents = qsa('.event');
+  if (timelineEvents.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    }, observerOptions);
+    timelineEvents.forEach((event) => observer.observe(event));
+  }
 })();
 
 
