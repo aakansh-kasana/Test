@@ -176,6 +176,26 @@
     }, observerOptions);
     timelineEvents.forEach((event) => observer.observe(event));
   }
+
+  // Accordion functionality for Brand Philosophy
+  const accordionItems = qsa('.accordion-item');
+  accordionItems.forEach(item => {
+    const toggle = item.querySelector('.accordion-toggle');
+    toggle.addEventListener('click', () => {
+      const isExpanded = item.classList.contains('expanded');
+      // Collapse all items
+      accordionItems.forEach(i => i.classList.remove('expanded'));
+      // Expand clicked item if it was not already expanded
+      if (!isExpanded) {
+        item.classList.add('expanded');
+      }
+    });
+    // Also expand on hover (optional, as per user request)
+    toggle.addEventListener('mouseenter', () => {
+      accordionItems.forEach(i => i.classList.remove('expanded'));
+      item.classList.add('expanded');
+    });
+  });
 })();
 
 
